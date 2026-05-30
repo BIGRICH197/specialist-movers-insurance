@@ -1,0 +1,157 @@
+/* Insurance proposal deck — responsive web presentation */
+
+.deck-root {
+  width: min(56rem, calc(100vw - 1.5rem));
+  margin: 0 auto;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  box-shadow: 0 16px 48px rgba(42, 36, 48, 0.12);
+}
+
+html.deck-document {
+  background: #d9d3de;
+}
+
+html.deck-document body {
+  background: #d9d3de;
+}
+
+.deck-slide {
+  min-height: auto;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+}
+
+#cover.deck-slide {
+  min-height: 100svh;
+}
+
+.deck-slide--scroll {
+  height: auto;
+}
+
+.deck-slide-inner {
+  max-width: 100% !important;
+  padding: 1.5rem 1.25rem !important;
+}
+
+@media (min-width: 640px) {
+  .deck-slide-inner {
+    padding: 2rem 1.75rem !important;
+  }
+}
+
+#cover .deck-slide-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  min-height: 100svh;
+}
+
+#cover .deck-cover-title {
+  font-size: 1.875rem !important;
+  line-height: 1.1 !important;
+}
+
+@media (min-width: 640px) {
+  #cover .deck-cover-title {
+    font-size: 2.25rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #cover .deck-cover-title {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* +1cm height so heads are not cropped */
+#cover .deck-cover-photo {
+  min-height: calc(12rem + 1cm) !important;
+}
+
+@media (min-width: 640px) {
+  #cover .deck-cover-photo {
+    min-height: calc(14rem + 1cm) !important;
+  }
+}
+
+#cover .deck-cover-photo img {
+  object-position: center 38% !important;
+}
+
+/* Experience photo — full width, natural aspect (no mm crop) */
+#experience .deck-experience-photo {
+  margin-top: 1.5rem;
+  max-height: none !important;
+  width: 100%;
+}
+
+/* About team photo */
+#about .hero-photo-ambient {
+  max-height: none !important;
+  width: 100%;
+}
+
+/* Contact photo */
+#contact .deck-contact-photo {
+  max-height: none !important;
+  width: 100%;
+}
+
+/* Zones — text left, full zone graphic right */
+.deck-zones-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .deck-zones-split {
+    grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr);
+    align-items: start;
+    gap: 1.75rem;
+  }
+}
+
+.deck-map {
+  width: 100%;
+  line-height: 0;
+}
+
+.deck-zones-map-img {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  border-radius: 0.5rem;
+  background: #f3eff5;
+  box-shadow: 0 4px 20px rgba(42, 36, 48, 0.12);
+}
+
+@media (min-width: 640px) {
+  .deck-zones-map-img {
+    max-height: min(75vh, 36rem);
+    width: auto !important;
+    max-width: 100% !important;
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+/* Pricing tables — clip rows to rounded wrapper */
+.deck-pricing-table-wrap {
+  overflow: hidden;
+  background: #fff;
+}
+
+.deck-pricing-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.deck-pricing-table tbody tr:last-child td {
+  background: #fff;
+}

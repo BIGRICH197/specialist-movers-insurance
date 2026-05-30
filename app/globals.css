@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply overflow-x-hidden bg-brand-canvas font-sans text-brand-purple antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .container-px {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .bg-hero-modern {
+    background-color: #faf7fc;
+    background-image:
+      radial-gradient(ellipse 120% 80% at 100% 0%, rgba(151, 57, 176, 0.1) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 70% at 0% 100%, rgba(243, 208, 42, 0.26) 0%, transparent 52%);
+  }
+
+  .hero-ambient {
+    position: relative;
+    background-color: #9739b0;
+    background-image:
+      radial-gradient(ellipse 80% 55% at 0% 0%, rgba(190, 118, 239, 0.22) 0%, transparent 58%),
+      radial-gradient(ellipse 65% 50% at 100% 100%, rgba(151, 57, 176, 0.35) 0%, transparent 52%);
+  }
+
+  .hero-photo-ambient {
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+}
+
+/*
+ * Photo purple wash — outside @layer so it always wins over Tailwind resets.
+ */
+.photo-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(151, 57, 176, 0.52) 0%,
+      rgba(151, 57, 176, 0.22) 38%,
+      rgba(190, 118, 239, 0.08) 55%,
+      transparent 72%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(190, 118, 239, 0.28) 0%,
+      rgba(151, 57, 176, 0.1) 45%,
+      transparent 70%
+    );
+}
+
+.photo-frame--caption::after {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(151, 57, 176, 0.97) 0%,
+      rgba(151, 57, 176, 0.72) 18%,
+      rgba(151, 57, 176, 0.35) 42%,
+      rgba(190, 118, 239, 0.12) 58%,
+      transparent 72%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(190, 118, 239, 0.22) 0%,
+      transparent 55%
+    );
+}
+
+.photo-frame--round::after {
+  border-radius: 9999px;
+}

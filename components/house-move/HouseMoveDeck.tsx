@@ -2,13 +2,13 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { ProposalCoverFooter } from "@/components/house-move/ProposalCoverFooter";
 import { ProposalPopularAddOns } from "@/components/house-move/ProposalPopularAddOns";
 import { ProposalWhatsIncludedCompact } from "@/components/house-move/ProposalWhatsIncludedCompact";
-import { DeckBrandLogo } from "@/components/simon-james/DeckBrandLogo";
-import { DeckSlide } from "@/components/simon-james/DeckSlide";
+import { DeckBrandLogo } from "@/components/deck/DeckBrandLogo";
+import { DeckSlide } from "@/components/deck/DeckSlide";
 import {
   DeckEyebrow,
   DeckRule,
   DeckTitle,
-} from "@/components/simon-james/DeckTypography";
+} from "@/components/deck/DeckTypography";
 import { deckHero } from "@/lib/deck-hero";
 import { QuoteTable } from "@/components/house-move/QuoteTable";
 import { formatAddress, hasNotes, usesXeroQuoteTable, type HouseMoveQuote } from "@/lib/house-move-quote";

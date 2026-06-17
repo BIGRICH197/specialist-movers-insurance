@@ -1,5 +1,5 @@
 import { ProposalReviewsBadge } from "@/components/house-move/ProposalReviewsBadge";
-import { DeckEyebrow } from "@/components/simon-james/DeckTypography";
+import { DeckEyebrow } from "@/components/deck/DeckTypography";
 
 export function ProposalCoverFooter({ className = "" }: { className?: string }) {
   return (

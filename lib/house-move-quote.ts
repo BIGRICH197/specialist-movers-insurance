@@ -53,6 +53,8 @@ export type HouseMoveQuote = {
   /** Force unticked even if a line item would match */
   excludedAddOns?: string[];
   notes?: string[];
+  /** Shown on the office proposal pricing slide */
+  pricingNotes?: string[];
   validFor?: string;
 };
 
@@ -146,4 +148,14 @@ export function quoteTimelineSteps(quote: HouseMoveQuote): { step: string; title
         body: rest.join(":").trim() || item.description,
       };
     });
+}
+
+export function fixedLabourAndTrucksExclGst(quote: HouseMoveQuote): number {
+  return quote.lineItems.reduce((sum, item) => {
+    const d = item.description.toLowerCase();
+    if (/^day [1-4]/.test(d) || d.includes("callout") || d.includes("call out") || d.includes("call-out")) {
+      return sum + item.amountExclGst;
+    }
+    return sum;
+  }, 0);
 }

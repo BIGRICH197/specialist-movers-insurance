@@ -1,0 +1,30 @@
+{
+  "clientName": "Tom",
+  "quoteDate": "10 June 2026",
+  "quoteTable": "xero",
+  "pickup": { "suburb": "Kohimarama" },
+  "delivery": { "suburb": "Remuera" },
+  "moveDate": "Saturday 7 June 2026",
+  "lineItems": [
+    {
+      "description": "Call Out Fee",
+      "quantity": 1,
+      "unitPriceExclGst": 80,
+      "amountExclGst": 80
+    },
+    {
+      "description": "1 Hours Labour - 3 Movers",
+      "quantity": 3.5,
+      "unitPriceExclGst": 180,
+      "amountExclGst": 630
+    },
+    {
+      "description": "Fuel Surcharge",
+      "quantity": 1,
+      "unitPriceExclGst": 25,
+      "amountExclGst": 25
+    }
+  ],
+  "notes": [],
+  "validFor": ""
+}

@@ -1,6 +1,15 @@
-# Insurance partners proposal
+# Specialist Movers proposals
 
-Proposal deck for insurance companies (claims and contents moves).
+Proposal decks for insurance partners and residential house moves.
+
+| Route | Audience |
+|-------|----------|
+| `/` | Insurance partners |
+| `/house-move` | House move proposal (from `data/proposals/current.json`) |
+
+Send a Xero quote PDF and ask to update `current.json`. Open `/house-move`, then print to PDF.
+
+**Step-by-step guide:** [docs/house-move-workflow.md](docs/house-move-workflow.md)
 
 ## Local
 

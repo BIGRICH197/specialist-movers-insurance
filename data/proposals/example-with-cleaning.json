@@ -1,0 +1,19 @@
+{
+  "clientName": "Sarah Chen",
+  "quoteDate": "10 June 2026",
+  "pickup": { "line1": "14 Jervois Road", "suburb": "Ponsonby" },
+  "delivery": { "line1": "8 Williamson Avenue", "suburb": "Grey Lynn" },
+  "moveDate": "Friday 14 June 2026",
+  "lineItems": [
+    {
+      "description": "2 movers — Ponsonby to Grey Lynn",
+      "hours": 4,
+      "hourlyRateExclGst": 160,
+      "amountExclGst": 640
+    },
+    { "description": "Call out fee", "amountExclGst": 60 },
+    { "description": "Exit clean — 3 bedroom / 2 bathroom (fixed price)", "amountExclGst": 486 }
+  ],
+  "notes": [],
+  "validFor": "14 days"
+}

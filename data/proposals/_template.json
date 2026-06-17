@@ -1,0 +1,20 @@
+{
+  "clientName": "",
+  "quoteDate": "",
+  "quoteTable": "proposal",
+  "pickup": { "suburb": "" },
+  "delivery": { "suburb": "" },
+  "moveDate": "",
+  "lineItems": [
+    {
+      "description": "2 movers — suburb to suburb",
+      "hours": 3.5,
+      "hourlyRateExclGst": 160,
+      "amountExclGst": 560
+    }
+  ],
+  "includedAddOns": [],
+  "excludedAddOns": [],
+  "notes": [],
+  "validFor": ""
+}

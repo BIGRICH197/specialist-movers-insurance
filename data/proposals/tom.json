@@ -1,0 +1,19 @@
+{
+  "clientName": "Tom",
+  "quoteDate": "10 June 2026",
+  "pickup": { "suburb": "Kohimarama" },
+  "delivery": { "suburb": "Remuera" },
+  "moveDate": "Saturday 7 June 2026",
+  "lineItems": [
+    {
+      "description": "3 movers — Kohimarama to Remuera",
+      "hours": 3.5,
+      "hourlyRateExclGst": 180,
+      "amountExclGst": 630
+    },
+    { "description": "Call out fee", "amountExclGst": 80 },
+    { "description": "Fuel surcharge", "amountExclGst": 25 }
+  ],
+  "notes": [],
+  "validFor": ""
+}

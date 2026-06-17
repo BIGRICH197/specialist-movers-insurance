@@ -1,0 +1,94 @@
+{
+  "clientName": "AMP",
+  "quoteDate": "17 June 2026",
+  "quoteTable": "xero",
+  "pickup": {
+    "suburb": "Origin",
+    "access": "Loading-bay lift, simple access"
+  },
+  "delivery": {
+    "suburb": "Destination",
+    "access": "No loading-bay lift; one truck at a time; single lift for vertical movement"
+  },
+  "moveDate": "5-day relocation · approx. 60 m³ · team of 8 · 5 trucks",
+  "lineItems": [
+    {
+      "description": "Truck callout fee",
+      "quantity": 5,
+      "unitPriceExclGst": 80,
+      "amountExclGst": 400
+    },
+    {
+      "description": "Day 1: pack kitchen/desks; begin dismantle & shrink-wrap (8 crew: 4F + 4M)",
+      "quantity": 1,
+      "unitPriceExclGst": 3840,
+      "amountExclGst": 3840
+    },
+    {
+      "description": "Day 2: dismantle, wrap, stage loads (8 crew)",
+      "quantity": 1,
+      "unitPriceExclGst": 3840,
+      "amountExclGst": 3840
+    },
+    {
+      "description": "Day 3: finish dismantle; begin load & transport (8 crew)",
+      "quantity": 1,
+      "unitPriceExclGst": 3840,
+      "amountExclGst": 3840
+    },
+    {
+      "description": "Day 4: load/transport; begin reassembly (8 crew)",
+      "quantity": 1,
+      "unitPriceExclGst": 3840,
+      "amountExclGst": 3840
+    },
+    {
+      "description": "Day 5: reassembly, rubbish removal, prep office ready (8 crew)",
+      "quantity": 1,
+      "unitPriceExclGst": 3840,
+      "amountExclGst": 3840
+    },
+    {
+      "description": "Moving boxes",
+      "quantity": 200,
+      "unitPriceExclGst": 4.5,
+      "amountExclGst": 900
+    },
+    {
+      "description": "Bubble wrap (120 m roll)",
+      "quantity": 10,
+      "unitPriceExclGst": 120,
+      "amountExclGst": 1200
+    },
+    {
+      "description": "Shrink wrap (roll)",
+      "quantity": 10,
+      "unitPriceExclGst": 70,
+      "amountExclGst": 700
+    },
+    {
+      "description": "Packing tape (roll)",
+      "quantity": 20,
+      "unitPriceExclGst": 10,
+      "amountExclGst": 200
+    },
+    {
+      "description": "Packing paper (pack)",
+      "quantity": 3,
+      "unitPriceExclGst": 105,
+      "amountExclGst": 315
+    }
+  ],
+  "includedAddOns": ["packing", "specialist"],
+  "excludedAddOns": [],
+  "notes": [
+    "AMP Office Relocation. Attn: Loscie Mu. Quote SM-2026-0617.",
+    "Fixed price for the scope, access and timeline described in this quote.",
+    "Dropoff site has no loading-bay lift. Acoustic/silent pods are dismantled at the origin, transported flat, and reassembled on site.",
+    "Dropoff is restricted to one truck at a time for parking (client to arrange additional access) and a single lift for all vertical movement. This is built into the 5-day timeline.",
+    "Includes dismantle, wrap, pack, transport, reassembly, and on-site rubbish removal by the crew.",
+    "Pickup site has simple access with a loading-bay lift.",
+    "Dedicated dump run (transporting waste to a disposal facility) is available as an optional extra at additional cost."
+  ],
+  "validFor": "30 days"
+}

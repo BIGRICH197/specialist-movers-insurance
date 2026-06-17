@@ -1,0 +1,27 @@
+{
+  "clientName": "Falko Westphalen",
+  "quoteDate": "28 May 2026",
+  "pickup": { "line1": "32a Penzance Road", "suburb": "Mairangi Bay" },
+  "delivery": { "suburb": "" },
+  "moveDate": "",
+  "lineItems": [
+    { "description": "Call out fee", "amountExclGst": 80 },
+    {
+      "description": "3 Packers — pack full home",
+      "hours": 8,
+      "hourlyRateExclGst": 180,
+      "amountExclGst": 1440
+    },
+    { "description": "Heavy duty box large (45)", "amountExclGst": 247.5 },
+    { "description": "Heavy duty box small (40)", "amountExclGst": 180 },
+    { "description": "Wardrobe box (4)", "amountExclGst": 79.6 },
+    { "description": "Couch protector — heavy duty (2)", "amountExclGst": 26 },
+    { "description": "Mattress protector — heavy duty (3)", "amountExclGst": 48 },
+    { "description": "Bubble wrap 1.3m × 60m", "amountExclGst": 120 },
+    { "description": "Packing paper — 870 sheets", "amountExclGst": 109 },
+    { "description": "Shrink wrap (2)", "amountExclGst": 100 },
+    { "description": "Tape roll for tape gun 2 pack (5)", "amountExclGst": 50 }
+  ],
+  "notes": [],
+  "validFor": ""
+}

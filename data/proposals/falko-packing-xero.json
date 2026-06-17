@@ -1,0 +1,78 @@
+{
+  "clientName": "Falko Westphalen",
+  "quoteDate": "28 May 2026",
+  "quoteTable": "xero",
+  "pickup": { "line1": "32a Penzance Road", "suburb": "Mairangi Bay" },
+  "delivery": { "suburb": "" },
+  "moveDate": "",
+  "lineItems": [
+    {
+      "description": "Call Out Fee",
+      "quantity": 1,
+      "unitPriceExclGst": 80,
+      "amountExclGst": 80
+    },
+    {
+      "description": "1 Hours Labour - 3 Packers (to pack full home)",
+      "quantity": 8,
+      "unitPriceExclGst": 180,
+      "amountExclGst": 1440
+    },
+    {
+      "description": "Heavy Duty Box Large - 431mm x 406mm x 596mm",
+      "quantity": 45,
+      "unitPriceExclGst": 5.5,
+      "amountExclGst": 247.5
+    },
+    {
+      "description": "Heavy Duty Box Small - 495mm x 315mm x 352mm",
+      "quantity": 40,
+      "unitPriceExclGst": 4.5,
+      "amountExclGst": 180
+    },
+    {
+      "description": "Wardrobe Box",
+      "quantity": 4,
+      "unitPriceExclGst": 19.9,
+      "amountExclGst": 79.6
+    },
+    {
+      "description": "Couch Protector - Heavy Duty",
+      "quantity": 2,
+      "unitPriceExclGst": 13,
+      "amountExclGst": 26
+    },
+    {
+      "description": "Mattress Protector - Heavy Duty",
+      "quantity": 3,
+      "unitPriceExclGst": 16,
+      "amountExclGst": 48
+    },
+    {
+      "description": "1.3m X 60m Bubble",
+      "quantity": 1,
+      "unitPriceExclGst": 120,
+      "amountExclGst": 120
+    },
+    {
+      "description": "Packing Paper - 870 sheets",
+      "quantity": 1,
+      "unitPriceExclGst": 109,
+      "amountExclGst": 109
+    },
+    {
+      "description": "Shrink Wrap",
+      "quantity": 2,
+      "unitPriceExclGst": 50,
+      "amountExclGst": 100
+    },
+    {
+      "description": "Tape Roll for Tape Gun 2 Pack",
+      "quantity": 5,
+      "unitPriceExclGst": 10,
+      "amountExclGst": 50
+    }
+  ],
+  "notes": [],
+  "validFor": ""
+}

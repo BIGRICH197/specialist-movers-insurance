@@ -48,7 +48,7 @@
       "amountExclGst": 5760
     },
     {
-      "description": "Day 5: finish and handover, if required (4 crew, 4 hrs @ $60/person/hr)",
+      "description": "Day 5: finish and handover (4 crew, 4 hrs @ $60/person/hr)",
       "quantity": 1,
       "unitPriceExclGst": 960,
       "amountExclGst": 960
@@ -83,12 +83,6 @@
       "unitPriceExclGst": 105,
       "amountExclGst": 315
     }
-  ],
-  "pricingNotes": [
-    "Labour for days 1 to 4 and truck callouts are fixed price.",
-    "Day 5 is charged only if needed for finish and handover.",
-    "Materials are charged for quantities actually used at the unit rates shown.",
-    "The total below includes estimated day 5 and materials. Your fixed price is the labour days 1 to 4 and truck total shown above."
   ],
   "notes": [
     "Silent pods are dismantled and reassembled by the silent pod company. We move them only.",

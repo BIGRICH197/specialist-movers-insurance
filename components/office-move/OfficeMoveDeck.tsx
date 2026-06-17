@@ -1,5 +1,5 @@
 import { HeroVisual } from "@/components/HeroVisual";
-import { QuoteTable } from "@/components/house-move/QuoteTable";
+import { OfficeQuotePricing } from "@/components/office-move/OfficeQuotePricing";
 import { SitePhoto } from "@/components/SitePhoto";
 import { DeckBrandLogo } from "@/components/deck/DeckBrandLogo";
 import { DeckSlide } from "@/components/deck/DeckSlide";
@@ -11,9 +11,7 @@ import {
 } from "@/components/deck/DeckTypography";
 import { deckHero } from "@/lib/deck-hero";
 import {
-  fixedLabourAndTrucksExclGst,
   formatAddress,
-  formatNzd,
   hasNotes,
   quoteTimelineSteps,
   type HouseMoveQuote,
@@ -296,35 +294,16 @@ export function OfficeMoveDeck({ quote }: Props) {
         </ul>
       </DeckSlide>
 
-      {/* 7 - Fixed price quote */}
+      {/* 7 - Quote */}
       <DeckSlide id="pricing" tone="light" scrollable innerClassName="!py-10 sm:!py-12">
         <DeckEyebrow>Your quote</DeckEyebrow>
-        <DeckTitle className="mt-3">Fixed price labour</DeckTitle>
+        <DeckTitle className="mt-3">Pricing</DeckTitle>
         <DeckRule />
-        <DeckLead>
-          Labour for days 1 to 4 and truck callouts are a fixed price for the scope, access, and timeline
-          described in this proposal. Day 5 is charged only if needed. Materials are charged for what is
-          actually used at the unit rates shown.
-        </DeckLead>
-        <div className="proposal-card mt-6 px-5 py-4 text-sm text-brand-purple sm:text-base">
-          <p className="font-heading text-xs font-bold uppercase tracking-wide text-brand-purple/70">
-            Fixed price (labour days 1 to 4 + trucks)
-          </p>
-          <p className="mt-2 font-heading text-xl text-brand-purple sm:text-2xl">
-            {formatNzd(fixedLabourAndTrucksExclGst(quote))} excl. GST ·{" "}
-            {formatNzd(fixedLabourAndTrucksExclGst(quote) * 1.15)} incl. GST
-          </p>
-        </div>
         <div id="quote" className="proposal-quote-block mt-6 text-sm font-normal text-brand-purple">
           <QuoteMoveDetails quote={quote} />
-          <QuoteTable quote={quote} />
-          {quote.pricingNotes?.filter((n) => n.trim()).map((note) => (
-            <p key={note} className="mt-3 text-sm leading-relaxed text-brand-purple/75">
-              {note}
-            </p>
-          ))}
+          <OfficeQuotePricing quote={quote} />
           {quote.validFor ? (
-            <p className="mt-3 text-brand-purple/75">Valid for {quote.validFor} from the quote date above.</p>
+            <p className="mt-4 text-brand-purple/75">Valid for {quote.validFor} from the quote date above.</p>
           ) : null}
         </div>
       </DeckSlide>

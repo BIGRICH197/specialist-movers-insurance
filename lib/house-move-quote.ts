@@ -153,7 +153,7 @@ export function quoteTimelineSteps(quote: HouseMoveQuote): { step: string; title
 export function fixedLabourAndTrucksExclGst(quote: HouseMoveQuote): number {
   return quote.lineItems.reduce((sum, item) => {
     const d = item.description.toLowerCase();
-    if (/^day [1-4]/.test(d) || d.includes("callout") || d.includes("call out") || d.includes("call-out")) {
+    if (/^day [1-5]/.test(d) || d.includes("callout") || d.includes("call out") || d.includes("call-out")) {
       return sum + item.amountExclGst;
     }
     return sum;

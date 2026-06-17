@@ -80,7 +80,7 @@ export const officeTermsClauses: readonly OfficeTermsClause[] = [
     number: 2,
     title: "Fixed price & scope",
     paragraphs: [
-      "The price quoted is a fixed price for labour on days 1 to 4, truck callouts, access conditions and the timeline set out in the quote, based on information supplied by the Client. Day 5 labour is charged only if required for finish and handover, at the rate shown. Materials are charged at the unit rates listed for quantities actually used.",
+      "The price quoted is a fixed price for labour on all five days, truck callouts, access conditions and the timeline set out in the quote, based on information supplied by the Client. Materials are charged at the unit rates listed for quantities actually used.",
     ],
   },
   {

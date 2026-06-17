@@ -42,16 +42,16 @@
       "amountExclGst": 3840
     },
     {
-      "description": "Day 4: reassemble and unpack (10 crew, 8 hrs @ $60/person/hr)",
+      "description": "Day 4: reassemble and unpack (12 crew, 8 hrs @ $60/person/hr)",
       "quantity": 1,
-      "unitPriceExclGst": 4800,
-      "amountExclGst": 4800
+      "unitPriceExclGst": 5760,
+      "amountExclGst": 5760
     },
     {
-      "description": "Day 5: finish and handover (10 crew, 4 hrs @ $60/person/hr)",
+      "description": "Day 5: finish and handover (4 crew, 4 hrs @ $60/person/hr)",
       "quantity": 1,
-      "unitPriceExclGst": 2400,
-      "amountExclGst": 2400
+      "unitPriceExclGst": 960,
+      "amountExclGst": 960
     },
     {
       "description": "Moving boxes",

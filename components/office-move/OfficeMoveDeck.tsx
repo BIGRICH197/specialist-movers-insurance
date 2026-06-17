@@ -1,4 +1,5 @@
 import { HeroVisual } from "@/components/HeroVisual";
+import { QuoteTable } from "@/components/house-move/QuoteTable";
 import { SitePhoto } from "@/components/SitePhoto";
 import { DeckBrandLogo } from "@/components/deck/DeckBrandLogo";
 import { DeckSlide } from "@/components/deck/DeckSlide";
@@ -11,14 +12,8 @@ import {
 import { deckHero } from "@/lib/deck-hero";
 import {
   formatAddress,
-  formatNzd,
-  formatQuoteQuantity,
   hasNotes,
-  quoteGstAmount,
-  quoteSectionTotals,
-  quoteSubtotalExclGst,
   quoteTimelineSteps,
-  quoteTotalInclGst,
   type HouseMoveQuote,
 } from "@/lib/house-move-quote";
 import {
@@ -31,80 +26,36 @@ import {
 } from "@/lib/office-move-deck";
 import { sitePhotos } from "@/lib/site-photos";
 
-function PricingTable({
-  headers,
-  rows,
-  compact,
-}: {
-  headers: string[];
-  rows: string[][];
-  compact?: boolean;
-}) {
-  return (
-    <div className="deck-pricing-table-wrap mt-4 rounded-xl border border-brand-purple/15 bg-white shadow-sm sm:mt-6">
-      <table
-        className={`deck-pricing-table w-full ${compact ? "text-xs sm:text-sm" : "text-sm"}`}
-      >
-        <thead>
-          <tr className="border-b border-brand-purple/10 bg-brand-surface">
-            {headers.map((h) => (
-              <th
-                key={h}
-                className={`text-left font-heading font-bold uppercase tracking-wide text-brand-purple ${
-                  compact ? "px-2 py-2 text-[10px] sm:px-3 sm:py-2.5 sm:text-xs" : "px-4 py-3 text-xs"
-                }`}
-              >
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row[0]} className="border-b border-brand-purple/8 last:border-0">
-              {row.map((cell, j) => (
-                <td
-                  key={`${row[0]}-${j}`}
-                  className={`${compact ? "px-2 py-2 sm:px-3 sm:py-2.5" : "px-4 py-3"} ${
-                    j === 0 ? "font-medium text-brand-purple" : "text-brand-purple/80"
-                  } ${j > 0 ? "text-right tabular-nums" : ""}`}
-                >
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-function PriceCard({ rows }: { rows: readonly { label: string; value: string }[] }) {
-  return (
-    <div className="deck-price-card mt-6 overflow-hidden rounded-xl border border-brand-purple/15 bg-white shadow-sm sm:mt-8">
-      {rows.map((row, i) => (
-        <div
-          key={row.label}
-          className={`flex items-baseline justify-between gap-4 px-5 py-4 ${
-            i > 0 ? "border-t border-brand-purple/10" : ""
-          }`}
-        >
-          <span className="text-xs font-semibold uppercase tracking-wide text-brand-purple/70">
-            {row.label}
-          </span>
-          <span className="font-heading text-base text-brand-purple sm:text-lg">{row.value}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function formatSiteAccess(quote: HouseMoveQuote, kind: "pickup" | "delivery"): string {
   const addr = kind === "pickup" ? quote.pickup : quote.delivery;
   const parts = [formatAddress(addr)];
   if (addr.access) parts.push(addr.access);
   return parts.join(" · ");
+}
+
+function formatPickupDelivery(addr: HouseMoveQuote["pickup"]): string {
+  return addr.access ? `${formatAddress(addr)} (${addr.access})` : formatAddress(addr);
+}
+
+function QuoteMoveDetails({ quote }: { quote: HouseMoveQuote }) {
+  const rows: { label: string; value: string }[] = [];
+
+  if (quote.moveDate) rows.push({ label: "Timeline", value: quote.moveDate });
+  if (quote.pickup.suburb) rows.push({ label: "Pickup", value: formatPickupDelivery(quote.pickup) });
+  if (quote.delivery.suburb) rows.push({ label: "Drop off", value: formatPickupDelivery(quote.delivery) });
+
+  if (rows.length === 0) return null;
+
+  return (
+    <dl className="proposal-details proposal-card proposal-quote-move-details divide-y divide-brand-purple/10 text-sm font-normal text-brand-purple">
+      {rows.map((row) => (
+        <div key={row.label} className="flex flex-col gap-1 px-5 py-3 sm:flex-row sm:justify-between sm:gap-6">
+          <dt className="text-brand-purple/75">{row.label}</dt>
+          <dd className="sm:text-right">{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
 }
 
 type Props = {
@@ -114,28 +65,9 @@ type Props = {
 export function OfficeMoveDeck({ quote }: Props) {
   const projectTitle =
     quote.projectTitle ?? (quote.clientName ? `${quote.clientName} office relocation` : "Office relocation");
-  const sections = quoteSectionTotals(quote);
   const timeline = quoteTimelineSteps(quote);
-  const subtotal = quoteSubtotalExclGst(quote);
-  const gst = quoteGstAmount(quote);
-  const total = quoteTotalInclGst(quote);
   const scopeNotes = quote.notes?.filter((n) => n.trim()) ?? [];
   const showScopeNotes = hasNotes(quote);
-
-  const summaryRows = [
-    { label: "Trucks (callout)", value: `${formatNzd(sections.trucks)} excl. GST` },
-    { label: "Labour (fixed, 5 days)", value: `${formatNzd(sections.labour)} excl. GST` },
-    { label: "Materials", value: `${formatNzd(sections.materials)} excl. GST` },
-    { label: "Subtotal", value: `${formatNzd(subtotal)} excl. GST` },
-    { label: "GST (15%)", value: formatNzd(gst) },
-    { label: "Fixed price total", value: `${formatNzd(total)} incl. GST` },
-  ] as const;
-
-  const lineRows = quote.lineItems.map((item) => {
-    const qty = item.quantity ?? item.hours ?? 1;
-    const unit = item.unitPriceExclGst ?? item.hourlyRateExclGst ?? item.amountExclGst;
-    return [item.description, formatQuoteQuantity(qty), formatNzd(unit), formatNzd(item.amountExclGst)];
-  });
 
   return (
     <div className="deck-root bg-brand-canvas font-sans">
@@ -313,41 +245,25 @@ export function OfficeMoveDeck({ quote }: Props) {
         </ul>
       </DeckSlide>
 
-      {/* 7 - Fixed price summary */}
-      <DeckSlide id="pricing-summary" tone="light" scrollable innerClassName="!py-10 sm:!py-12">
+      {/* 7 - Fixed price quote */}
+      <DeckSlide id="pricing" tone="light" scrollable innerClassName="!py-10 sm:!py-12">
         <DeckEyebrow>Your quote</DeckEyebrow>
-        <DeckTitle className="mt-3">Fixed price summary</DeckTitle>
+        <DeckTitle className="mt-3">Fixed price</DeckTitle>
         <DeckRule />
         <DeckLead>
           This is a fixed-price quote for the scope, access, and timeline described in this proposal. It is
           not charged by the hour.
         </DeckLead>
-        <PriceCard rows={summaryRows} />
-        {quote.validFor ? (
-          <p className="deck-footnote mt-4 text-sm leading-relaxed text-brand-purple/65 sm:mt-6">
-            Valid for {quote.validFor} from the quote date above.
-          </p>
-        ) : null}
+        <div id="quote" className="proposal-quote-block mt-6 text-sm font-normal text-brand-purple">
+          <QuoteMoveDetails quote={quote} />
+          <QuoteTable quote={quote} />
+          {quote.validFor ? (
+            <p className="mt-3 text-brand-purple/75">Valid for {quote.validFor} from the quote date above.</p>
+          ) : null}
+        </div>
       </DeckSlide>
 
-      {/* 8 - Line detail */}
-      <DeckSlide id="pricing-detail" tone="purple" scrollable>
-        <DeckEyebrow tone="purple">Breakdown</DeckEyebrow>
-        <DeckTitle tone="purple" className="mt-4">
-          Trucks, labour &amp; materials
-        </DeckTitle>
-        <DeckRule tone="purple" />
-        <PricingTable
-          compact
-          headers={["Description", "Qty", "Unit (excl. GST)", "Amount (excl. GST)"]}
-          rows={lineRows}
-        />
-        <p className="deck-tagline mt-8 font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand-yellow sm:text-base">
-          Fixed price total {formatNzd(total)} incl. GST
-        </p>
-      </DeckSlide>
-
-      {/* 9 - Credentials */}
+      {/* 8 - Credentials */}
       <DeckSlide id="credentials" tone="light" scrollable>
         <DeckEyebrow>Credentials</DeckEyebrow>
         <DeckTitle className="mt-4">Insurance &amp; your cover</DeckTitle>
@@ -371,7 +287,7 @@ export function OfficeMoveDeck({ quote }: Props) {
         />
       </DeckSlide>
 
-      {/* 10 - Assumptions */}
+      {/* 9 - Assumptions */}
       <DeckSlide id="assumptions" tone="light" scrollable>
         <DeckEyebrow>Terms</DeckEyebrow>
         <DeckTitle className="mt-4">Fixed price &amp; assumptions</DeckTitle>
@@ -389,7 +305,7 @@ export function OfficeMoveDeck({ quote }: Props) {
         </ul>
       </DeckSlide>
 
-      {/* 11 - Contact */}
+      {/* 10 - Contact */}
       <DeckSlide id="contact" tone="purple" scrollable>
         <DeckEyebrow tone="purple">Contact</DeckEyebrow>
         <DeckTitle tone="purple" className="mt-4">

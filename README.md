@@ -1,14 +1,15 @@
 # Specialist Movers proposals
 
-Proposal decks for insurance partners and residential house moves.
+Proposal decks for insurance partners, office relocations, and residential house moves.
 
 | Route | Audience |
 |-------|----------|
-| `/` | Insurance partners |
-| `/house-move` | House move proposal (from `data/proposals/current.json`) |
-| `/office-move` | Office / commercial proposal (same JSON when `proposalType` is `office`) |
+| `/` on **insurance** Vercel | Insurance partners deck |
+| `/` on **office** Vercel | Office / commercial proposal (`data/proposals/current.json`) |
+| `/house-move` | House move proposal (local / same repo) |
+| `/office-move` | Office proposal preview (local dev) |
 
-Send a Xero quote PDF and ask to update `current.json`. Open `/house-move`, then print to PDF.
+Send a Xero quote PDF and ask to update `current.json`. Office jobs: open the **office** Vercel URL, then print to PDF.
 
 **Step-by-step guide:** [docs/house-move-workflow.md](docs/house-move-workflow.md)
 
@@ -37,4 +38,11 @@ git push -u origin main
 
 ## Vercel
 
-New project → import **specialist-movers-insurance** → default Next.js build.
+Two projects, same GitHub repo:
+
+| Vercel project | URL | Env var |
+|----------------|-----|---------|
+| **specialist-movers-insurance** | https://specialist-movers-insurance.vercel.app | *(none)* |
+| **specialist-movers-office** | https://specialist-movers-office.vercel.app | `PROPOSAL_SITE=office` |
+
+Import **specialist-movers-insurance** from GitHub for the insurance deck. Create **specialist-movers-office**, import the same repo, add `PROPOSAL_SITE` = `office` in Production environment variables, then deploy.

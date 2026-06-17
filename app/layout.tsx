@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./deck.css";
@@ -14,11 +13,6 @@ const termina = localFont({
   variable: "--font-termina",
   display: "swap",
 });
-
-export const metadata: Metadata = {
-  title: "Insurance partners - Contents moves proposal",
-  robots: { index: false, follow: false },
-};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

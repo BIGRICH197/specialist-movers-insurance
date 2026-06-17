@@ -7,7 +7,7 @@ export const officeAboutParagraphs = [
 ] as const;
 
 export const officeStats = [
-  { value: "80+", label: "house moves per month" },
+  { value: "80+", label: "moves per month" },
   { value: "100+", label: "piano moves per month" },
   { value: "20", label: "staff" },
   { value: "5 stars", label: "on Google" },

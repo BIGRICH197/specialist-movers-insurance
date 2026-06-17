@@ -164,8 +164,8 @@ export function OfficeMoveDeck({ quote }: Props) {
           ) : null}
         </div>
         <HeroVisual
-          photoSrc={sitePhotos.commercialHero}
-          photoAlt="Specialist Movers crew on a commercial relocation"
+          photoSrc={sitePhotos.homeHero}
+          photoAlt="Careful furniture move with Specialist Movers"
           overlayCaption={deckHero.photoTagline}
           imageObjectPosition="center 38%"
           priority

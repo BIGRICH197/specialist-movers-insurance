@@ -8,11 +8,13 @@
   "quoteDate": "17 June 2026",
   "quoteTable": "xero",
   "pickup": {
-    "suburb": "Origin",
+    "line1": "AMP, 29 Customs Street West",
+    "suburb": "Auckland CBD",
     "access": "Loading-bay lift, simple access"
   },
   "delivery": {
-    "suburb": "Destination",
+    "line1": "167 Victoria Street West",
+    "suburb": "Auckland CBD",
     "access": "One truck at a time; single lift for vertical movement"
   },
   "moveDate": "5-day relocation · 5 trucks · day 1: 8 movers + 4 packers",

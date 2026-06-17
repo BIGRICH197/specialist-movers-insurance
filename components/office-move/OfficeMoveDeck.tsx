@@ -298,7 +298,7 @@ export function OfficeMoveDeck({ quote }: Props) {
         </DeckTitle>
         <DeckRule tone="purple" />
         <DeckLead tone="purple">
-          Occupied offices, tight lift access, and acoustic pods all need a crew that knows the rules and
+          Occupied offices, tight lift access, and silent pods all need a crew that knows the rules and
           sticks to them.
         </DeckLead>
         <ul className="mt-4 grid gap-6 sm:grid-cols-3 sm:gap-8">

@@ -24,7 +24,7 @@ export const officeHealthSafetyPoints = [
   },
   {
     title: "Careful handling",
-    body: "Acoustic pods, modular furniture, and fragile equipment are dismantled, wrapped, and reassembled with care. Nothing rushed.",
+    body: "Silent pods, modular furniture, and fragile equipment are wrapped and moved with care. Nothing rushed.",
   },
 ] as const;
 

@@ -13,9 +13,9 @@
   },
   "delivery": {
     "suburb": "Destination",
-    "access": "No loading-bay lift; one truck at a time; single lift for vertical movement"
+    "access": "One truck at a time; single lift for vertical movement"
   },
-  "moveDate": "5-day relocation · approx. 60 m³ · team of 8 · 5 trucks",
+  "moveDate": "5-day relocation · team of 8 · 5 trucks",
   "lineItems": [
     {
       "description": "Truck callout fee",
@@ -85,7 +85,7 @@
     }
   ],
   "notes": [
-    "Dropoff site has no loading-bay lift. Acoustic/silent pods are dismantled at the origin, transported flat, and reassembled on site.",
+    "Silent pods are relocated as complete units. We are not dismantling or reassembling them.",
     "Dropoff is restricted to one truck at a time for parking (client to arrange additional access) and a single lift for all vertical movement. This is built into the 5-day timeline.",
     "Includes dismantle, wrap, pack, transport, reassembly, and on-site rubbish removal by the crew.",
     "Pickup site has simple access with a loading-bay lift.",

@@ -18,11 +18,13 @@ import {
 } from "@/lib/house-move-quote";
 import {
   officeAboutParagraphs,
-  officeAssumptionPoints,
   officeContacts,
   officeCredentials,
   officeHealthSafetyPoints,
   officeStats,
+  officeTermsClauseGroups,
+  officeTermsIntro,
+  type OfficeTermsClause,
 } from "@/lib/office-move-deck";
 import { sitePhotos } from "@/lib/site-photos";
 
@@ -55,6 +57,53 @@ function QuoteMoveDetails({ quote }: { quote: HouseMoveQuote }) {
         </div>
       ))}
     </dl>
+  );
+}
+
+function TermsClauseList({
+  clauses,
+  showIntro = false,
+}: {
+  clauses: readonly OfficeTermsClause[];
+  showIntro?: boolean;
+}) {
+  return (
+    <div className="mt-6 space-y-5 sm:space-y-6">
+      {showIntro ? (
+        <p className="text-sm leading-relaxed text-brand-purple/80 sm:text-base">{officeTermsIntro}</p>
+      ) : null}
+      <ol className="space-y-5 sm:space-y-6">
+        {clauses.map((clause) => (
+          <li
+            key={clause.number}
+            className="border-t border-brand-purple/12 pt-5 first:border-t-0 first:pt-0"
+          >
+            <h3 className="font-heading text-sm font-bold text-brand-purple sm:text-base">
+              {clause.number}. {clause.title}
+            </h3>
+            <div className="mt-2 space-y-2">
+              {clause.paragraphs[0] ? (
+                <p className="text-sm leading-relaxed text-brand-purple/80 sm:text-base">
+                  {clause.paragraphs[0]}
+                </p>
+              ) : null}
+              {clause.bullets ? (
+                <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-brand-purple/80 sm:text-base">
+                  {clause.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {clause.paragraphs.slice(1).map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className="text-sm leading-relaxed text-brand-purple/80 sm:text-base">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }
 
@@ -287,25 +336,7 @@ export function OfficeMoveDeck({ quote }: Props) {
         />
       </DeckSlide>
 
-      {/* 9 - Assumptions */}
-      <DeckSlide id="assumptions" tone="light" scrollable>
-        <DeckEyebrow>Terms</DeckEyebrow>
-        <DeckTitle className="mt-4">Fixed price &amp; assumptions</DeckTitle>
-        <DeckRule />
-        <ul className="deck-checklist mt-6 grid gap-3 sm:mt-8 sm:gap-4">
-          {officeAssumptionPoints.map((point) => (
-            <li
-              key={point.slice(0, 32)}
-              className="flex items-start gap-3 rounded-lg border border-brand-purple/12 bg-white/95 px-4 py-3 text-sm leading-relaxed text-brand-purple shadow-sm sm:text-base"
-            >
-              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-yellow" aria-hidden />
-              {point}
-            </li>
-          ))}
-        </ul>
-      </DeckSlide>
-
-      {/* 10 - Contact */}
+      {/* 9 - Contact */}
       <DeckSlide id="contact" tone="purple" scrollable>
         <DeckEyebrow tone="purple">Contact</DeckEyebrow>
         <DeckTitle tone="purple" className="mt-4">
@@ -343,6 +374,30 @@ export function OfficeMoveDeck({ quote }: Props) {
         <p className="deck-address mt-6 text-sm text-white/65 sm:mt-8">
           186 Target Road, Glenfield · specialistmovers.co.nz
         </p>
+      </DeckSlide>
+
+      {/* 10 - Terms (1 to 5) */}
+      <DeckSlide id="terms-1" tone="light" scrollable innerClassName="!py-10 sm:!py-12">
+        <DeckEyebrow>Terms &amp; conditions</DeckEyebrow>
+        <DeckTitle className="mt-4">Commercial relocation terms</DeckTitle>
+        <DeckRule />
+        <TermsClauseList clauses={officeTermsClauseGroups[0]} showIntro />
+      </DeckSlide>
+
+      {/* 11 - Terms (6 to 10) */}
+      <DeckSlide id="terms-2" tone="light" scrollable innerClassName="!py-10 sm:!py-12">
+        <DeckEyebrow>Terms &amp; conditions</DeckEyebrow>
+        <DeckTitle className="mt-4">Commercial relocation terms (continued)</DeckTitle>
+        <DeckRule />
+        <TermsClauseList clauses={officeTermsClauseGroups[1]} />
+      </DeckSlide>
+
+      {/* 12 - Terms (11 to 15) */}
+      <DeckSlide id="terms-3" tone="light" scrollable innerClassName="!py-10 sm:!py-12">
+        <DeckEyebrow>Terms &amp; conditions</DeckEyebrow>
+        <DeckTitle className="mt-4">Commercial relocation terms (continued)</DeckTitle>
+        <DeckRule />
+        <TermsClauseList clauses={officeTermsClauseGroups[2]} />
       </DeckSlide>
     </div>
   );

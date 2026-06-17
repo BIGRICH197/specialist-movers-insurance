@@ -6,6 +6,7 @@ Proposal decks for insurance partners and residential house moves.
 |-------|----------|
 | `/` | Insurance partners |
 | `/house-move` | House move proposal (from `data/proposals/current.json`) |
+| `/office-move` | Office / commercial proposal (same JSON when `proposalType` is `office`) |
 
 Send a Xero quote PDF and ask to update `current.json`. Open `/house-move`, then print to PDF.
 

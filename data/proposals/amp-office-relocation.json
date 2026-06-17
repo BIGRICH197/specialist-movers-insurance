@@ -1,5 +1,10 @@
 {
+  "proposalType": "office",
   "clientName": "AMP",
+  "projectTitle": "AMP Office Relocation",
+  "contactName": "Loscie Mu",
+  "quoteNumber": "SM-2026-0617",
+  "preparedBy": "Danielle Maritz, Office Manager",
   "quoteDate": "17 June 2026",
   "quoteTable": "xero",
   "pickup": {
@@ -79,11 +84,7 @@
       "amountExclGst": 315
     }
   ],
-  "includedAddOns": ["packing", "specialist"],
-  "excludedAddOns": [],
   "notes": [
-    "AMP Office Relocation. Attn: Loscie Mu. Quote SM-2026-0617.",
-    "Fixed price for the scope, access and timeline described in this quote.",
     "Dropoff site has no loading-bay lift. Acoustic/silent pods are dismantled at the origin, transported flat, and reassembled on site.",
     "Dropoff is restricted to one truck at a time for parking (client to arrange additional access) and a single lift for all vertical movement. This is built into the 5-day timeline.",
     "Includes dismantle, wrap, pack, transport, reassembly, and on-site rubbish removal by the crew.",

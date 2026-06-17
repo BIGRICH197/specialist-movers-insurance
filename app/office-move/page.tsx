@@ -1,14 +1,12 @@
-import { HouseMoveDeck } from "@/components/house-move/HouseMoveDeck";
+import { OfficeMoveDeck } from "@/components/office-move/OfficeMoveDeck";
 import { loadProposal } from "@/lib/load-proposal";
-import { isOfficeProposal } from "@/lib/house-move-quote";
-import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "House move proposal",
+  title: "Office move proposal",
   robots: { index: false, follow: false },
 };
 
-export default async function HouseMovePage() {
+export default async function OfficeMovePage() {
   const quote = await loadProposal("current");
   if (!quote) {
     return (
@@ -18,9 +16,5 @@ export default async function HouseMovePage() {
     );
   }
 
-  if (isOfficeProposal(quote)) {
-    redirect("/office-move");
-  }
-
-  return <HouseMoveDeck quote={quote} />;
+  return <OfficeMoveDeck quote={quote} />;
 }

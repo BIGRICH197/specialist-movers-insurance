@@ -21,8 +21,20 @@ export type QuoteLineItem = {
 
 export type QuoteTableFormat = "proposal" | "xero";
 
+export type ProposalType = "house" | "office";
+
 export type HouseMoveQuote = {
+  /** house = residential deck; office = commercial relocation deck */
+  proposalType?: ProposalType;
   clientName: string;
+  /** e.g. AMP Office Relocation */
+  projectTitle?: string;
+  /** e.g. Loscie Mu */
+  contactName?: string;
+  /** e.g. SM-2026-0617 */
+  quoteNumber?: string;
+  /** e.g. Danielle Maritz, Office Manager */
+  preparedBy?: string;
   /** Date the quote was issued (shown left column). From Xero quote date. */
   quoteDate?: string;
   /** proposal = description + total; xero = qty, unit price, amount like Xero PDF */
@@ -94,4 +106,44 @@ export function usesXeroQuoteTable(quote: HouseMoveQuote): boolean {
 
 export function formatQuoteQuantity(qty: number): string {
   return qty.toLocaleString("en-NZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+export function isOfficeProposal(quote: HouseMoveQuote): boolean {
+  return quote.proposalType === "office";
+}
+
+export function quoteSectionTotals(quote: HouseMoveQuote): {
+  trucks: number;
+  labour: number;
+  materials: number;
+} {
+  let trucks = 0;
+  let labour = 0;
+  let materials = 0;
+
+  for (const item of quote.lineItems) {
+    const d = item.description.toLowerCase();
+    if (d.includes("callout") || d.includes("call out") || d.includes("call-out")) {
+      trucks += item.amountExclGst;
+    } else if (/^day \d/.test(d)) {
+      labour += item.amountExclGst;
+    } else {
+      materials += item.amountExclGst;
+    }
+  }
+
+  return { trucks, labour, materials };
+}
+
+export function quoteTimelineSteps(quote: HouseMoveQuote): { step: string; title: string; body: string }[] {
+  return quote.lineItems
+    .filter((item) => /^Day \d/i.test(item.description))
+    .map((item, index) => {
+      const [titlePart, ...rest] = item.description.split(":");
+      return {
+        step: String(index + 1).padStart(2, "0"),
+        title: titlePart?.trim() ?? `Day ${index + 1}`,
+        body: rest.join(":").trim() || item.description,
+      };
+    });
 }

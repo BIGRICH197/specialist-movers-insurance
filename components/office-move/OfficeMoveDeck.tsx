@@ -324,8 +324,8 @@ export function OfficeMoveDeck({ quote }: Props) {
           ))}
         </ul>
         <SitePhoto
-          src={sitePhotos.commercialOnSite}
-          alt="Specialist Movers truck on a commercial site"
+          src={sitePhotos.aboutTeam}
+          alt="Specialist Movers team in uniform with company trucks"
           aspect="wide"
           className="mt-8 w-full"
           overlay={false}

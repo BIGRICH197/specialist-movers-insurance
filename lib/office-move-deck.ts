@@ -24,7 +24,7 @@ export const officeHealthSafetyPoints = [
   },
   {
     title: "Careful handling",
-    body: "Silent pods are relocated as complete units. Workstations, modular furniture, and fragile equipment are wrapped, protected, and handled with care. Nothing rushed.",
+    body: "Silent pods are dismantled and reassembled by the silent pod company. We move them only. Workstations, modular furniture, and fragile equipment are wrapped, protected, and handled with care. Nothing rushed.",
   },
 ] as const;
 

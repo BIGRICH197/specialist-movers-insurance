@@ -246,10 +246,10 @@ export function OfficeMoveDeck({ quote }: Props) {
           <DeckEyebrow>The plan</DeckEyebrow>
           <DeckTitle className="mt-4">5-day relocation timeline</DeckTitle>
           <DeckRule />
-          <DeckLead>
-            Fixed-price labour is spread across five days so items and the facility are handled with care,
-            without rushing or damage.
-          </DeckLead>
+        <DeckLead>
+          Fixed-price labour across five days. Crew size steps up for pack-out and set-down, then scales back
+          for final handover.
+        </DeckLead>
           <ol className="mt-6 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:gap-6">
             {timeline.map((item) => (
               <li

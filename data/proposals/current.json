@@ -15,7 +15,7 @@
     "suburb": "Destination",
     "access": "One truck at a time; single lift for vertical movement"
   },
-  "moveDate": "5-day relocation · team of 8 · 5 trucks",
+  "moveDate": "5-day relocation · 5 trucks · day 1: 8 movers + 4 packers",
   "lineItems": [
     {
       "description": "Truck callout fee",
@@ -24,34 +24,34 @@
       "amountExclGst": 400
     },
     {
-      "description": "Day 1: pack kitchen/desks; begin dismantle & shrink-wrap (8 crew: 4F + 4M)",
+      "description": "Day 1: pack, dismantle and wrap entire office (8 movers + 4 packers, 8 hrs @ $60/person/hr)",
+      "quantity": 1,
+      "unitPriceExclGst": 5760,
+      "amountExclGst": 5760
+    },
+    {
+      "description": "Day 2: finish wrapping and load trucks (8 movers, 8 hrs @ $60/person/hr)",
       "quantity": 1,
       "unitPriceExclGst": 3840,
       "amountExclGst": 3840
     },
     {
-      "description": "Day 2: dismantle, wrap, stage loads (8 crew)",
+      "description": "Day 3: deliver to new site (8 movers, 8 hrs @ $60/person/hr)",
       "quantity": 1,
       "unitPriceExclGst": 3840,
       "amountExclGst": 3840
     },
     {
-      "description": "Day 3: finish dismantle; begin load & transport (8 crew)",
+      "description": "Day 4: reassemble and unpack (10 crew, 8 hrs @ $60/person/hr)",
       "quantity": 1,
-      "unitPriceExclGst": 3840,
-      "amountExclGst": 3840
+      "unitPriceExclGst": 4800,
+      "amountExclGst": 4800
     },
     {
-      "description": "Day 4: load/transport; begin reassembly (8 crew)",
+      "description": "Day 5: finish and handover (10 crew, 4 hrs @ $60/person/hr)",
       "quantity": 1,
-      "unitPriceExclGst": 3840,
-      "amountExclGst": 3840
-    },
-    {
-      "description": "Day 5: reassembly, rubbish removal, prep office ready (8 crew)",
-      "quantity": 1,
-      "unitPriceExclGst": 3840,
-      "amountExclGst": 3840
+      "unitPriceExclGst": 2400,
+      "amountExclGst": 2400
     },
     {
       "description": "Moving boxes",

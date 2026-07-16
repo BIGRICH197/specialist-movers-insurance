@@ -52,7 +52,7 @@ Multiple projects, same GitHub repo:
 | Vercel project | URL | Env var |
 |----------------|-----|---------|
 | **specialist-movers-insurance** | https://specialist-movers-insurance.vercel.app | *(none)* |
-| **specialist-movers-concept-interiors** | *(create new)* | `PROPOSAL_SITE=concept-interiors` |
+| **specialist-movers-concept-interiors** | https://specialist-movers-concept-interiors.vercel.app | `PROPOSAL_SITE=concept-interiors` |
 | **specialist-movers-office** | https://specialist-movers-office.vercel.app | `PROPOSAL_SITE=office` |
 | **specialist-movers-retirement** | *(create)* | `PROPOSAL_SITE=retirement` |
 

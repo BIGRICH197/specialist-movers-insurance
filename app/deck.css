@@ -88,6 +88,11 @@ html.deck-document body {
   width: 100%;
 }
 
+#experience .deck-piano-experience-photo {
+  aspect-ratio: 3 / 2 !important;
+  min-height: 14rem;
+}
+
 /* About team photo */
 #about .hero-photo-ambient {
   max-height: none !important;

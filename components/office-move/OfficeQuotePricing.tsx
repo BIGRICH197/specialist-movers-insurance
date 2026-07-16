@@ -2,6 +2,7 @@ import {
   formatNzd,
   formatQuoteQuantity,
   fixedLabourAndTrucksExclGst,
+  materialsEstimateExclGst,
   type HouseMoveQuote,
   type QuoteLineItem,
 } from "@/lib/house-move-quote";
@@ -118,6 +119,33 @@ function FixedTotals({ quote }: { quote: HouseMoveQuote }) {
   );
 }
 
+function MaterialsEstimateTotals({ quote }: { quote: HouseMoveQuote }) {
+  const subtotal = materialsEstimateExclGst(quote);
+  const gst = subtotal * 0.15;
+  const total = subtotal + gst;
+  const rowClass = "flex items-center justify-between gap-4 px-4 py-2.5 sm:px-5";
+
+  return (
+    <div className="border-t border-brand-purple/10 text-sm font-normal text-brand-purple">
+      <div className={rowClass}>
+        <span>Estimated subtotal (excl. GST)</span>
+        <span className="tabular-nums">{formatNzd(subtotal)}</span>
+      </div>
+      <div className={rowClass}>
+        <span>GST (15%)</span>
+        <span className="tabular-nums">{formatNzd(gst)}</span>
+      </div>
+      <div className={`${rowClass} border-t border-brand-purple/10 bg-brand-surface/40 font-heading text-base`}>
+        <span>Estimated materials total (incl. GST)</span>
+        <span className="tabular-nums text-brand-purple">{formatNzd(total)}</span>
+      </div>
+      <p className="border-t border-brand-purple/10 px-4 py-3 text-sm leading-relaxed text-brand-purple/75 sm:px-5">
+        Based on the quantities listed above. You are charged only for what we actually use on the job.
+      </p>
+    </div>
+  );
+}
+
 export function OfficeQuotePricing({ quote }: { quote: HouseMoveQuote }) {
   const fixed = fixedLineItems(quote);
   const materials = materialLineItems(quote);
@@ -135,9 +163,10 @@ export function OfficeQuotePricing({ quote }: { quote: HouseMoveQuote }) {
       {materials.length > 0 ? (
         <PricingSection
           title="Materials"
-          lead="Unit rates below. You are charged only for what we actually use on the job."
+          lead="Estimated quantities and unit rates below. Final billing is for what we actually use."
         >
-          <LineTable items={materials} showAmount={false} />
+          <LineTable items={materials} />
+          <MaterialsEstimateTotals quote={quote} />
         </PricingSection>
       ) : null}
     </div>

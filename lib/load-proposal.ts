@@ -1,6 +1,7 @@
 import { readFile } from "fs/promises";
 import path from "path";
 import type { HouseMoveQuote } from "@/lib/house-move-quote";
+import { siteProposalSlug } from "@/lib/proposal-site";
 
 const proposalsDir = path.join(process.cwd(), "data", "proposals");
 
@@ -14,4 +15,8 @@ export async function loadProposal(slug: string): Promise<HouseMoveQuote | null>
   } catch {
     return null;
   }
+}
+
+export async function loadSiteProposal(): Promise<HouseMoveQuote | null> {
+  return loadProposal(siteProposalSlug());
 }

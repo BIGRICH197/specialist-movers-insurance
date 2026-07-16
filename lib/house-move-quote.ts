@@ -21,7 +21,7 @@ export type QuoteLineItem = {
 
 export type QuoteTableFormat = "proposal" | "xero";
 
-export type ProposalType = "house" | "office";
+export type ProposalType = "house" | "office" | "retirement";
 
 export type HouseMoveQuote = {
   /** house = residential deck; office = commercial relocation deck */
@@ -114,6 +114,10 @@ export function isOfficeProposal(quote: HouseMoveQuote): boolean {
   return quote.proposalType === "office";
 }
 
+export function isRetirementProposal(quote: HouseMoveQuote): boolean {
+  return quote.proposalType === "retirement";
+}
+
 export function quoteSectionTotals(quote: HouseMoveQuote): {
   trucks: number;
   labour: number;
@@ -158,4 +162,17 @@ export function fixedLabourAndTrucksExclGst(quote: HouseMoveQuote): number {
     }
     return sum;
   }, 0);
+}
+
+export function materialsEstimateExclGst(quote: HouseMoveQuote): number {
+  return quote.lineItems.reduce((sum, item) => {
+    const d = item.description.toLowerCase();
+    if (isMaterialLineItem(d)) return sum + item.amountExclGst;
+    return sum;
+  }, 0);
+}
+
+function isMaterialLineItem(description: string): boolean {
+  const d = description.toLowerCase();
+  return !d.includes("callout") && !d.includes("call out") && !d.includes("call-out") && !/^day \d/.test(d);
 }

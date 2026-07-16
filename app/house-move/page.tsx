@@ -1,6 +1,6 @@
 import { HouseMoveDeck } from "@/components/house-move/HouseMoveDeck";
 import { loadProposal } from "@/lib/load-proposal";
-import { isOfficeProposal } from "@/lib/house-move-quote";
+import { isOfficeProposal, isRetirementProposal } from "@/lib/house-move-quote";
 import { redirect } from "next/navigation";
 
 export const metadata = {
@@ -20,6 +20,10 @@ export default async function HouseMovePage() {
 
   if (isOfficeProposal(quote)) {
     redirect("/office-move");
+  }
+
+  if (isRetirementProposal(quote)) {
+    redirect("/retirement");
   }
 
   return <HouseMoveDeck quote={quote} />;

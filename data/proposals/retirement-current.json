@@ -1,0 +1,55 @@
+{
+  "proposalType": "retirement",
+  "clientName": "Example Retirement Village",
+  "projectTitle": "Moving & packing services",
+  "contactName": "Village manager",
+  "quoteNumber": "SM-2026-0000",
+  "preparedBy": "Danielle Maritz, Office Manager",
+  "quoteDate": "17 June 2026",
+  "quoteTable": "proposal",
+  "pickup": {
+    "line1": "Resident family home",
+    "suburb": "North Shore",
+    "access": "Single-level, driveway parking"
+  },
+  "delivery": {
+    "line1": "Village unit 12",
+    "suburb": "Example Village, Auckland",
+    "access": "Lift booking required, one truck at a time"
+  },
+  "moveDate": "Pack day before uplift · 2 movers + truck",
+  "dates": {
+    "pack": "Monday 7 July 2026",
+    "uplift": "Tuesday 8 July 2026",
+    "delivery": "Tuesday 8 July 2026"
+  },
+  "lineItems": [
+    {
+      "description": "Call out fee",
+      "amountExclGst": 60
+    },
+    {
+      "description": "2 movers — uplift and delivery",
+      "hours": 4,
+      "hourlyRateExclGst": 160,
+      "amountExclGst": 640
+    },
+    {
+      "description": "3 packers — full home pack (day before)",
+      "hours": 6,
+      "hourlyRateExclGst": 180,
+      "amountExclGst": 1080
+    },
+    {
+      "description": "Moving boxes and packing materials (estimated)",
+      "amountExclGst": 350
+    }
+  ],
+  "includedAddOns": ["packing"],
+  "notes": [
+    "Packers come in the day before uplift.",
+    "Lift booking to be confirmed by village manager before move day.",
+    "Materials charged for actual use unless otherwise noted."
+  ],
+  "validFor": "30 days"
+}
